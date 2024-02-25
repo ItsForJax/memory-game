@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './CardComponent.css'
 
 export default function CardComponent({card, handleChoice, flipped, disabled}) {
