@@ -1,11 +1,24 @@
+import { useState } from 'react'
 import './CardComponent.css'
 
-export default function CardComponent({card}) {
+export default function CardComponent({card, handleChoice, flipped, disabled}) {
+
+    const handleClick = () => {
+        if (!disabled && !flipped) {handleChoice(card)}
+    }
+
     return (
         <div className='card'>
-            <div>
-              <img src={card.src} className='front' alt='front'/>
-              <img src="/img/Cover.png" className='back' alt='back'/>
+            <div className={flipped ? 'flipped' : ''}>
+              <img  src={card.src} 
+                    className='front' 
+                    alt='front' 
+                    draggable="false"/>
+              <img  src="/img/Cover.png" 
+                    className='back' 
+                    onClick={handleClick}
+                    alt='back'
+                    draggable="false"/>
             </div>
         </div>
     )
